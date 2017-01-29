@@ -1,0 +1,24 @@
+<style>
+.jumbotron
+{
+	background-color: lightgray;
+	color:black;
+}
+a:link
+{
+	text-decoration:none;
+	color:black;
+}
+div#songlist ul li,
+div#artistlist ul li
+{
+	text-align: center;
+	font-size:190%;
+}
+div#songlist ul li a, 
+div#artistlist ul li a 
+{
+	text-decoration:none;
+	color:black;
+}  
+</style>
