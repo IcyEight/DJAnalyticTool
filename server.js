@@ -33,9 +33,13 @@ app.get('/*', function(req, res){
 	res.redirect('/index');
 })
 
-app.get('/graph', function(req, res){
-	res.sendFile(__dirname + '/tempo-graph.html');
-})
+// app.get('/graph', function(req, res){
+// 	res.sendFile(__dirname + '/tempo-graph.html');
+// })
+
+// app.get('/songs', function(req, res){
+// 	res.sendFile(__dirname + '/songs.html');
+// })
 
 app.listen(3000, function () {
   console.log('Example app listening on port 3000!')

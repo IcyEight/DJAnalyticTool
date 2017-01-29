@@ -9,63 +9,36 @@
 <!-- local files -->
 <link rel="stylesheet" href="style.css">
 
-<!-- <script type="text/javascript">
-function getData2(){
-    $.ajax({
-        type: "GET",
-        url: '/songData',
-        success: function(data){
-        	return data;
-            // console.log(JSON.stringify(data));
-            // data.forEach(function(i){
-                
-            //     })
-            }
-        })
-}
-</script> -->
-
 <script type="text/javascript">
 	function getData()
-	{
-		var obj = 
-		{"data": 
-			[
-				{"SongTitle":"Song1","ArtistName":"ArtistName1","tempo":3.456},
-				{"SongTitle":"Song2","ArtistName":"ArtistName2","tempo":5.426},
-				{"SongTitle":"Song3","ArtistName":"ArtistName3","tempo":8.426},
-				{"SongTitle":"Song4","ArtistName":"ArtistName4","tempo":9.321}
-			]
-		}
-		var divId = document.getElementById("songlist")
-		var divStr = '<ul class="list-group">'
-		for(var i = 0; i < obj.data.length; i++)
-		{
-			for(var keys in obj.data[i])
-			{
-				if(keys == "SongTitle")
-				{
-					divStr = divStr + '<li class="list-group-item"><a href="detailInfo.html">' +obj.data[i][keys] + "</a></li>";
-					console.log(divStr);
-				}
-			}
-		}
-		divStr += "</ul>"
-		divId.innerHTML = divStr;
-		console.log(divId);
-	}
+        {
+        	$.ajax({
+        	type: "GET",
+        	url: '/songData',
+        	success: function(obj){
+                var divId = document.getElementById("songlist")
+                var divStr = '<ul class="list-group">'
+                obj.forEach(function(i){
+                        divStr = divStr + '<li class="list-group-item">' +i.SongTitle + "</a></li>";
+                })
+                divStr += "</ul>"
+                divId.innerHTML = divStr;
+                console.log(divId);
+                }
+            })
+        }
 </script>
 </head>
 
 <body class="container">
-	<div class="jumbotron title">
-		<h1 align="center">DJ Analytics</h1>
-		<h3 align="center">Top Songs</h3>
-	</div>
+    <div class="jumbotron title">
+        <h1 align="center">DJ Analytics</h1>
+        <h3 align="center">Top Songs</h3>
+    </div>
 
-	<div id="songlist">
-		<script type="text/javascript">getData();</script>
-	</div>
+    <div id="songlist">
+        <script type="text/javascript">getData();</script>
+    </div>
 
 </body>
 </html>

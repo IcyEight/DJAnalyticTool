@@ -12,10 +12,10 @@
 </head>
 
 <body class="container">
-	<div class="jumbotron title">
-		<h1 align="center">DJ Analytics</h1>
-		<h3 align="center">Tempo Graph</h3>
-	</div>
+        <div class="jumbotron title">
+                <h1 align="center">DJ Analytics</h1>
+                <h3 align="center">Tempo Graph</h3>
+        </div>
 
 	<script type="text/javascript">
 		function getData(){
@@ -23,38 +23,34 @@
 				type: "GET",
 				url: '/songData',
 				success: function(data){
-					console.log(JSON.stringify(data));
 					var points = []
 					var j = 0;
 
 					data.forEach(function(i){
-						points.push({ x: j+=1, y: i.tempo})
+				        points.push({ x: j+=1, y: i.tempo})
 					})
 
-					console.log(JSON.stringify(points));
-
 					var chart = new CanvasJS.Chart("chartContainer", {
-					title: {
-						text: "Line Chart"
-					},
-					axisX: {
-						interval: 10
-					},
-					data: [{
-						type: "line",
-						dataPoints: points
-						}]
+						title: {
+					        text: "Tempo Over Time"
+						},
+						axisX: {
+						        interval: 1
+						},
+						data: [{
+					        type: "line",
+					        dataPoints: points
+					        }]
 					});
 					chart.render();
-					}
-				})
-			}
-			getData();
-			
-	</script>
+				}
+			})
+	    }
+	    getData();
+                        
+    </script>
 
-
-	<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+    <div id="chartContainer" style="height: 400px; width: 100%;"></div>
 
 </body>
 </html>
